@@ -68,3 +68,45 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .header-container {
+    padding: 10px 15px !important; 
+    backdrop-filter: blur(12px); 
+    
+    .nav-menu {
+      display: flex;
+      gap: 12px !important; 
+      
+      a {
+        font-size: 14px !important; 
+        padding: 4px 8px !important;
+      }
+    }
+
+   
+    .logo {
+      font-size: 16px !important; 
+    }
+    
+   
+    .social-icons-desktop {
+      display: none; 
+    }
+  }
+}
+
+
+@media (max-width: 480px) {
+  .header-container {
+    flex-direction: column; 
+    gap: 8px;
+    align-items: center;
+    
+    .nav-menu {
+      width: 100%;
+      justify-content: center; 
+      flex-wrap: wrap; 
+    }
+  }
+}
