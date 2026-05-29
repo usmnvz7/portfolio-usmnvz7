@@ -1,0 +1,107 @@
+.heroSection {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  padding: 0 10%;
+  gap: 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  position: relative;
+  z-index: 2;
+}
+
+.subtitle {
+  color: var(--accent);
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.title {
+  font-size: 4.5rem;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  color: var(--text-primary);
+  
+  span {
+    background: linear-gradient(to right, var(--text-primary), var(--text-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.description {
+  color: var(--text-secondary);
+  font-size: 1.15rem;
+  max-width: 540px;
+  line-height: 1.7;
+}
+
+.ctaButton {
+  width: fit-content;
+  padding: 0.9rem 2.2rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent-gradient);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(56, 189, 248, 0.25);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 24px rgba(56, 189, 248, 0.4);
+  }
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.avatarCircle {
+  width: 340px;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 40px var(--card-shadow), 
+              0 0 50px rgba(56, 189, 248, 0.15); 
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: none;
+  -webkit-filter: none;
+
+  &:hover {
+    transform: scale(1.02) translateY(-5px);
+    border-color: var(--accent);
+    box-shadow: 0 25px 50px var(--card-shadow), 
+                0 0 60px rgba(56, 189, 248, 0.3);
+  }
+}
+
+@media (max-width: 968px) {
+  .heroSection {
+    grid-template-columns: 1fr;
+    padding: 120px 5% 60px 5%;
+    gap: 3rem;
+    text-align: center;
+  }
+  .textContent { align-items: center; }
+  .title { font-size: 3rem; }
+  .imageContainer { order: -1; }
+  .avatarCircle { width: 260px; height: 260px; }
+}
