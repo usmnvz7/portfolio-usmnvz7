@@ -50,7 +50,7 @@ export const Header: React.FC = () => {
           <a href="#skills" style={linkStyle}>{lang === 'RU' ? 'Навыки' : 'Skills'}</a>
           <a href="#projects" style={linkStyle}>{lang === 'RU' ? 'Проекты' : 'Projects'}</a>
           <a href="#about" style={linkStyle}>{lang === 'RU' ? 'О себе' : 'About'}</a>
-          <a href="#contact" style={linkStyle}>{lang === 'RU' ? 'Контакты' : 'Contact'}</a>
+          
         </nav>
 
         {/* ПЕРЕКЛЮЧАТЕЛЬ ЯЗЫКА */}
