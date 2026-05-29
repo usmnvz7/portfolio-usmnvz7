@@ -2,18 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { useApp } from '../../context/AppContext';
 
 export const Header: React.FC = () => {
-
+  // Забираем только то, что точно есть в контексте
   const { lang, toggleLanguage } = useApp() as any; 
 
- 
+  // Локальное состояние темы
   const [theme, setTheme] = useState<'dark' | 'light'>('dark');
 
-  
+  // Функция переключения темы на уровне всего документа
   const handleToggleTheme = () => {
     const nextTheme = theme === 'dark' ? 'light' : 'dark';
     setTheme(nextTheme);
 
-    
     if (nextTheme === 'light') {
       document.body.classList.add('light-theme');
     } else {
@@ -21,7 +20,7 @@ export const Header: React.FC = () => {
     }
   };
 
-  
+  // Синхронизация темы при монтировании компонента
   useEffect(() => {
     if (theme === 'light') {
       document.body.classList.add('light-theme');
@@ -30,12 +29,13 @@ export const Header: React.FC = () => {
     }
   }, [theme]);
 
-
   const isDark = theme === 'dark';
-  const headerBg = isDark ? 'rgba(11, 17, 30, 0.7)' : 'rgba(255, 255, 255, 0.8)';
-  const headerBorder = isDark ? 'rgba(255, 255, 255, 0.08)' : 'rgba(0, 0, 0, 0.08)';
-  const logoColor = '#10b981'; 
+  
+  // Адаптивные цвета шапки, завязанные на глобальные CSS-переменные сайта
+  const headerBg = isDark ? 'rgba(11, 17, 30, 0.7)' : 'rgba(248, 250, 252, 0.8)';
+  const headerBorder = isDark ? 'rgba(255, 255, 255, 0.08)' : 'rgba(15, 23, 42, 0.08)';
   const linkColor = isDark ? '#94a3b8' : '#475569';
+  const logoColor = '#10b981'; // Твой фирменный зеленый
 
   return (
     <header style={{
@@ -62,7 +62,7 @@ export const Header: React.FC = () => {
         gap: '10px'
       }}>
         
-        {/* ЛОГОТИП / ИМЯ */}
+        {/* ЛОГОТИП */}
         <div style={{ 
           fontWeight: 700, 
           fontSize: '18px', 
@@ -72,6 +72,7 @@ export const Header: React.FC = () => {
           Atkham
         </div>
 
+        {/* НАВИГАЦИЯ С ОТСТУПАМИ */}
         <nav style={{
           display: 'flex',
           gap: '15px',
@@ -82,18 +83,32 @@ export const Header: React.FC = () => {
           <a href="#skills" style={{ ...linkStyle, color: linkColor }}>{lang === 'RU' ? 'Навыки' : 'Skills'}</a>
           <a href="#projects" style={{ ...linkStyle, color: linkColor }}>{lang === 'RU' ? 'Проекты' : 'Projects'}</a>
           <a href="#about" style={{ ...linkStyle, color: linkColor }}>{lang === 'RU' ? 'О себе' : 'About'}</a>
-        
+    
         </nav>
 
+        
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+
           
-          
+          <button 
+            onClick={toggleLanguage} 
+            style={{
+              ...btnStyle,
+              background: isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(15, 23, 42, 0.05)',
+              border: isDark ? '1px solid rgba(255, 255, 255, 0.15)' : '1px solid rgba(15, 23, 42, 0.15)',
+              color: isDark ? '#fff' : '#000',
+            }}
+          >
+            {lang}
+          </button>
+
+         
           <button 
             onClick={handleToggleTheme}
             style={{
               ...btnStyle,
-              background: isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.05)',
-              border: isDark ? '1px solid rgba(255, 255, 255, 0.15)' : '1px solid rgba(0, 0, 0, 0.15)',
+              background: isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(15, 23, 42, 0.05)',
+              border: isDark ? '1px solid rgba(255, 255, 255, 0.15)' : '1px solid rgba(15, 23, 42, 0.15)',
               color: isDark ? '#fff' : '#000',
             }}
             title={lang === 'RU' ? 'Сменить тему' : 'Toggle Theme'}
@@ -101,18 +116,7 @@ export const Header: React.FC = () => {
             {isDark ? '🔮' : '☀️'}
           </button>
 
-         
-          <button 
-            onClick={toggleLanguage} 
-            style={{
-              ...btnStyle,
-              background: isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.05)',
-              border: isDark ? '1px solid rgba(255, 255, 255, 0.15)' : '1px solid rgba(0, 0, 0, 0.15)',
-              color: isDark ? '#fff' : '#000',
-            }}
-          >
-            {lang}
-          </button>
+        
 
         </div>
 

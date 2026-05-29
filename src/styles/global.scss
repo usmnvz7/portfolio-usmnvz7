@@ -68,3 +68,47 @@ a {
 html {
   scroll-behavior: smooth; 
 }
+
+/* ======================================================= */
+/* ЖЕЛЕЗОБЕТОННАЯ СМЕНА ТЕМЫ ДЛЯ ВСЕГО САЙТА               */
+/* ======================================================= */
+
+/* Эффект плавного перехода цветов для всех элементов */
+body, section, div, h1, h2, h3, p, span, a, create-file {
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease !important;
+}
+
+/* СТИЛИ ДЛЯ СВЕТЛОЙ ТЕМЫ */
+body.light-theme {
+  background-color: #f8fafc !important; /* Меняем черный фон сайта на чистый светлый */
+  color: #0f172a !important;            /* Весь базовый текст становится темно-серым */
+
+  /* Перекрашиваем все заголовки в секциях Hero, About, Skills, Projects */
+  h1, h2, h3, h4, .title, .section-title {
+    color: #0f172a !important;
+  }
+
+  /* Перекрашиваем параграфы и описания */
+  p, .description, .subtitle, span {
+    color: #334155 !important;
+  }
+
+  /* Карточки проектов и навыков делаем стильными белыми плитами */
+  .project-card, .skill-card, .card, .projects-grid > div, .skills-grid > div {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    border: 1px solid rgba(15, 23, 42, 0.08) !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03) !important;
+  }
+
+  /* Ссылки внутри карточек */
+  .project-card a, .card a {
+    color: #10b981 !important; /* Твой зеленый для акцентов */
+  }
+
+
+  canvas, .premium-bg, #canvas-container {
+    opacity: 0.65 !important;
+    filter: invert(0) !important; 
+  }
+}
