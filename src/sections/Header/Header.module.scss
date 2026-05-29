@@ -4,7 +4,7 @@
   left: 0;
   width: 100%;
   z-index: 100;
-  background: rgba(11, 17, 30, 0.4); /* Полупрозрачный стеклянный фон */
+  background: rgba(11, 17, 30, 0.4); 
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   transition: all 0.3s ease;
@@ -16,13 +16,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-sizing: border-box; /* Важно, чтобы паддинги не расширяли блок наружу */
+    box-sizing: border-box; 
   }
 
   .logo {
     font-weight: 700;
     font-size: 20px;
-    color: #10b981; /* Кибер-зелёный */
+    color: #10b981; 
     letter-spacing: 1px;
   }
 
@@ -54,24 +54,22 @@
   }
 }
 
-/* ======================================================= */
-/* ЖЕСТКИЙ СБРОС ДЛЯ ТЕЛЕФОНОВ (БРЕЙКПОИНТ)                 */
-/* ======================================================= */
+
 @media (max-width: 768px) {
   .custom-header {
     .header-container {
-      padding: 10px 12px !important; /* Сужаем отступы до минимума */
+      padding: 10px 12px !important; 
     }
 
     .logo {
-      font-size: 16px !important; /* Уменьшаем имя */
+      font-size: 16px !important; 
     }
 
     .nav-menu {
-      gap: 8px !important; /* Вжимаем ссылки друг к другу, чтобы встали в один ряд */
+      gap: 8px !important; 
 
       a {
-        font-size: 13px !important; /* Делаем шрифт компактным для пальца */
+        font-size: 13px !important; 
         padding: 4px 6px;
         background: rgba(255, 255, 255, 0.02);
         border-radius: 6px;
@@ -85,9 +83,9 @@
   }
 }
 
-/* ЕСЛИ ЭКРАН СОВСЕМ КРОШЕЧНЫЙ (МЕНЬШЕ 390px) */
+
 @media (max-width: 390px) {
   .custom-header .nav-menu a {
-    font-size: 11px !important; /* Микро-шрифт для ультра-компактности */
+    font-size: 11px !important; 
   }
 }
